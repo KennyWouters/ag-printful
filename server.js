@@ -1,5 +1,5 @@
 require ('dotenv').config();
-
+console.log(process.env.API_KEY);
 
 // 1. Importing express
 const express = require('express');

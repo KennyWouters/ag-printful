@@ -1,7 +1,18 @@
+require('dotenv').config({path: '../../.env'});
 const axios = require('axios');
 
 
-// Define the data to be sent
+// Define the data to be sent Based on the data sent from the frontend when the user places an order
+// This data will be sent to Printful API to create an order
+// The data should be in the format specified by the Printful API
+// The data should be sent as a JSON object
+// The data should include the recipient's name, address, city, state, country, zip, items, and files
+// The items should include the variant_id, quantity, and files
+// The files should include the URL of the file to be printed
+// The variant_id should be the ID of the product variant to be printed
+// The quantity should be the number of items to be printed
+// The URL should be the URL of the file to be printed
+
 const data = {
     "recipient": {
         "name": "recipients name",
@@ -23,7 +34,9 @@ const data = {
         }
     ]
 };
-console.log('process.env.API_KEY', process.env.API_KEY);
+
+
+// console.log(process.env.API_KEY);
 async function createOrder(data) {
     try {
         // Make the POST request with the defined headers and data
@@ -32,12 +45,13 @@ async function createOrder(data) {
             url: 'https://api.printful.com/orders',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer UHIQzN4tGcxoEvW9UoZtfN3kfAGb0x4NdfASMwp0`
+                'Authorization': `Bearer ${process.env.API_KEY}`,
             },
             data: data
         });
 
-        // Log the response data
+        // Log the response data returned by the Printful API
+        // This data will include the order ID, status, and other details
         console.log(response.data);
     } catch (error) {
         console.error(error);
@@ -45,5 +59,8 @@ async function createOrder(data) {
         console.log(error);
     }
 }
+// Use the createOrder function to create an order
 
-createOrder(data);
+// createOrder(data);
+
+// To be verified, does the function actually send order to Printful API?
