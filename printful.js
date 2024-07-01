@@ -1,8 +1,8 @@
 const axios = require('axios');
 require('dotenv').config();  // Load environment variables from .env
 
-const PRINTFUL_API_URL = 'https://api.printful.com';
-const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY; // Get API key from environment variables
+const PRINTFUL_API_URL = process.env.PRINTFUL_API_URL;  // Get API URL from environment variables
+const PRINTFUL_API_KEY = process.env.PRINTFUL_API_KEY;  // Get API key from environment variables
 
 const printfulInstance = axios.create({
     baseURL: PRINTFUL_API_URL,

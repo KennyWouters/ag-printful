@@ -4,12 +4,12 @@ Content-Type: application/json
 
 {
   "recipient": {
-    "name": "Ollie the Second",
+    "name": "Valery Smith",
     "address1": "12 address avenue, Bankstown",
-    "city": "Sydney",
-    "state_code": "NSW",
-    "country_code": "AU",
-    "zip": "2200"
+    "city": "Brussels",
+    "state_code": "",
+    "country_code": "BE",
+    "zip": "1000"
   },
   "items": [
     {
