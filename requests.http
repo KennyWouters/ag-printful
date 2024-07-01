@@ -3,3 +3,29 @@ GET https://examples.http-client.intellij.net/get
     ?generated-in=WebStorm
 
 ###
+
+POST http://localhost:3000/printful/orders
+Content-Type: application/json
+Authorization: Bearer UHIQzN4tGcxoEvW9UoZtfN3kfAGb0x4NdfASMwp0
+
+{
+  "recipient": {
+    "name": "Ollie Bentch",
+    "address1": "12 address avenue, Bankstown",
+    "city": "Sydney",
+    "state_code": "NSW",
+    "country_code": "AU",
+    "zip": "2200"
+  },
+  "items": [
+    {
+      "variant_id": 825,
+      "quantity": 1,
+      "files": [
+        {
+          "url": "http://idata.over-blog.com/1/10/29/90//femme-au-bar.jpg"
+        }
+      ]
+    }
+  ]
+}

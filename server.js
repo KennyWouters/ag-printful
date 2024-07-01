@@ -16,3 +16,5 @@ app.listen(port, () => {
     console.log(`Server is running on port http://localhost:${port}`);
 });
 
+// 5. Body-parser middleware to parse JSON request bodies.
+app.use(express.json());
