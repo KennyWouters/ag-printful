@@ -1,16 +1,10 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=WebStorm
-
-###
-
-POST http://localhost:3000/printful/orders
+### Test Order Creation
+POST http://localhost:3000/orders
 Content-Type: application/json
-Authorization: Bearer UHIQzN4tGcxoEvW9UoZtfN3kfAGb0x4NdfASMwp0
 
 {
   "recipient": {
-    "name": "Ollie Bentch",
+    "name": "Ollie the Second",
     "address1": "12 address avenue, Bankstown",
     "city": "Sydney",
     "state_code": "NSW",

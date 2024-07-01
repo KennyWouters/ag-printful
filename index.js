@@ -1,12 +1,35 @@
 const express = require('express');
+const { getProducts, createOrder } = require('./printful');
+
 const app = express();
-const printfulRouter = require('./PrintfulController');
-require('dotenv').config();
-console.log(process.env.PRINTFUL_API_KEY);
+const port = 3000;
 
-app.use(express.json()); // for parsing application/json
-app.use('/printful', printfulRouter);
+app.use(express.json());
 
-// other app setup code...
+app.get('/', (req, res) => {
+    res.send('Printful Integration API');
+});
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.get('/products', async (req, res) => {
+    try {
+        const products = await getProducts();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.post('/orders', async (req, res) => {
+    try {
+        const orderData = req.body;
+        const order = await createOrder(orderData);
+        res.json(order);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});
+
