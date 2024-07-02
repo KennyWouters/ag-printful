@@ -11,16 +11,6 @@ const printfulInstance = axios.create({
     }
 });
 
-const getProducts = async () => {
-    try {
-        const response = await printfulInstance.get('/store/products');
-        return response.data;
-    } catch (error) {
-        console.error(error);
-        throw new Error('Error fetching products');
-    }
-};
-
 const createOrder = async (orderData) => {
     try {
         const response = await printfulInstance.post('/orders', orderData);
